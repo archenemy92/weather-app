@@ -155,7 +155,6 @@ export const getInfo = (city: string): ThunkType =>
         dispatch(isLoading())
         const res = await weatherApi.getWeatherInfo(city)
         if (res === "Something wrong") {
-            console.log(res)
             dispatch(isLoading())
             dispatch(setError("Can't find city, please enter valid data"))
         } else {

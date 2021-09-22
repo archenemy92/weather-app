@@ -49,7 +49,7 @@ export const FullInfo = () => {
                 {!city.name
                     ? <>
                         <h3 className={classes.header}>please check widget</h3>
-                        <NavLink to={"/"}>ggg</NavLink>
+                        <NavLink to={"/"}>go back</NavLink>
                     </>
 
                     : <>
