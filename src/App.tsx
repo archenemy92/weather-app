@@ -1,8 +1,10 @@
-import React, {useEffect} from "react"
+import React from "react"
+import {useEffect} from "react"
 import "./App.css"
 import {Weather} from "./Components/Weather/Weather"
 import {Header} from "./Components/Header/Header"
-import {CircularProgress, Container} from "@material-ui/core"
+import {Container} from "@material-ui/core"
+import {CircularProgress} from "@material-ui/core"
 import {useDispatch, useSelector} from "react-redux"
 import {AppStateType} from "./Redux/store"
 import {setInfo} from "./Redux/weatherReducer"
@@ -38,7 +40,7 @@ function App() {
                 <Route path={"/404"} render={() => <h1>404: page not found</h1>}/>
                 <Redirect from={"*"} to={"/404"}/>
             </Switch>
-            <footer style={{backgroundColor: "hsl(183, 53%, 81%)", height:"20px"}}>
+            <footer style={{backgroundColor: "hsl(183, 53%, 81%)", height: "20px"}}>
 
             </footer>
         </Container>

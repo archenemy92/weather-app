@@ -1,6 +1,7 @@
 import React from "react"
 import {useCallback} from "react"
-import {Container, IconButton} from "@material-ui/core"
+import {IconButton} from "@material-ui/core"
+import {Container} from "@material-ui/core"
 import {Card} from "@material-ui/core"
 import {useHistory} from "react-router-dom"
 import {NavLink} from "react-router-dom"
@@ -57,8 +58,8 @@ export const FullInfo = () => {
                             <div className={classes.info_block}>
                                 <div className={classes.info_content__block}>
                                     <div>
-                                        <IconButton style={{color: "blue"}}>
-                                            <RefreshIcon fontSize={"small"} onClick={refreshCityWeather}/>
+                                        <IconButton style={{color: "blue"}} onClick={refreshCityWeather}>
+                                            <RefreshIcon fontSize={"small"}/>
                                         </IconButton>
                                         <h3>{city.name}</h3>
 
@@ -128,8 +129,8 @@ export const FullInfo = () => {
                                 </div>
                             </div>
                             <div className={classes.button}>
-                                <IconButton style={{color: "red"}}>
-                                    <CloseIcon fontSize={"small"} onClick={HandleClose}/>
+                                <IconButton style={{color: "red"}} onClick={HandleClose}>
+                                    <CloseIcon fontSize={"small"}/>
                                 </IconButton>
                             </div>
                             <div >

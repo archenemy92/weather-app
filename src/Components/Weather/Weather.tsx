@@ -1,10 +1,14 @@
 import React from "react"
 import {Widget} from "./Widget/Widget"
-import {CircularProgress, Grid} from "@material-ui/core"
+import {Grid} from "@material-ui/core"
+import {CircularProgress} from "@material-ui/core"
 import {useStyles} from "./WeatherCSS"
 import {useDispatch, useSelector} from "react-redux"
 import {AppStateType} from "../../Redux/store"
-import {CityType, deleteCity, deleteCityFromLS, refreshInfo} from "../../Redux/weatherReducer"
+import {CityType} from "../../Redux/weatherReducer"
+import {deleteCity} from "../../Redux/weatherReducer"
+import {deleteCityFromLS} from "../../Redux/weatherReducer"
+import {refreshInfo} from "../../Redux/weatherReducer"
 
 
 export const Weather: React.FC = () => {

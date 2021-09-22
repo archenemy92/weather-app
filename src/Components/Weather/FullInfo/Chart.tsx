@@ -10,7 +10,6 @@ export const ChartContainer: React.FC = () => {
     const dayData = useSelector<AppStateType, DayTempType[]>(state => state.fullPage.dailyWeather)
     const classes = useStyles()
     let dataArr = dayData.map(el=>{
-
         return [new Date(el.dt * 1000).toLocaleTimeString().slice(0,-6), el.temp]
     })
 
@@ -22,7 +21,7 @@ export const ChartContainer: React.FC = () => {
                 loader={<div>Loading Chart</div>}
                 data={[
                     ["h", "temp"],
-                    ...dataArr.splice(23)
+                    ...dataArr.splice(23)//delete 24 of 48 elem for correct write data in the chart
                 ]}
                 options={{
                     hAxis: {

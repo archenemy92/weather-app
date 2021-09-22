@@ -115,6 +115,7 @@ export const addCity = (city: CityType) => {
         city
     } as const
 }
+//make audit for load data in request
 export const isLoading = () => {
     return {
         type: "IS_LOADING_WEATHER",
@@ -149,7 +150,7 @@ export const setError = (error: string) => {
     } as const
 }
 
-
+//request weather data from input field
 export const getInfo = (city: string): ThunkType =>
     async (dispatch) => {
         dispatch(isLoading())
@@ -190,6 +191,7 @@ export const deleteCityFromLS = (id: number): ThunkType =>
         localStorage.setItem("cities", JSON.stringify([...filtered]))
     }
 
+    //set cities in init state
 export const setInfo = (): ThunkType =>
     async (dispatch) => {
         const cities = localStorage.getItem("cities")

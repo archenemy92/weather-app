@@ -31,6 +31,8 @@ export const setInitialize = () => {
     } as const
 }
 
+
+//make fake initialization
 export const initApp = (): ThunkType =>
     async (dispatch) => {
         setTimeout(() => {

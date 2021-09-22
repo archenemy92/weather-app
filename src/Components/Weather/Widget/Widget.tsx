@@ -17,7 +17,7 @@ type WidgetPropsType = {
 }
 
 export const Widget: React.FC<CityType & WidgetPropsType> = (props) => {
-
+    console.log("widget rendered")
     let unix = new Date(props.dt * 1000)
 
     const classes = useStyles()
@@ -57,11 +57,11 @@ export const Widget: React.FC<CityType & WidgetPropsType> = (props) => {
                 </div>
             </div>
             <div className={classes.buttons_block}>
-                <IconButton style={{color: "red"}}>
-                    <DeleteIcon fontSize={"small"} onClick={() => props.deleteWidget(props.id)}/>
+                <IconButton style={{color: "red"}} onClick={() => props.deleteWidget(props.id)}>
+                    <DeleteIcon fontSize={"small"}/>
                 </IconButton>
-                <IconButton style={{color: "blue"}}>
-                    <RefreshIcon fontSize={"small"} onClick={() => props.refreshWidget(props.name)}/>
+                <IconButton style={{color: "blue"}} onClick={() => props.refreshWidget(props.name)}>
+                    <RefreshIcon fontSize={"small"}/>
                 </IconButton>
             </div>
         </Container>
