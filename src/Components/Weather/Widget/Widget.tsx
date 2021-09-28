@@ -12,7 +12,6 @@ import ThermostatIcon from "@mui/icons-material/Thermostat"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
 
 type WidgetPropsType = {
-    city: CityType
     deleteWidget: (id: number) => void
     refreshWidget: (cityTitle: string) => void
 }

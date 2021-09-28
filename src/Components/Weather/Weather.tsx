@@ -42,7 +42,6 @@ export const Weather: React.FC = () => {
             ? <Grid container className={classes.root}>
                 {cities.map(c => <Widget key={c.id}
                                          {...c}
-                                         city={c}
                                          deleteWidget={deleteWidget}
                                          refreshWidget={refreshWidget}
                 />)}
