@@ -1,4 +1,4 @@
-import React, {useCallback} from "react"
+import React, {useCallback, useEffect} from "react"
 import {Container, IconButton} from "@material-ui/core"
 import {useStyles} from "./WidgetCSS"
 import {CityType} from "../../../Redux/weatherReducer"
@@ -12,11 +12,13 @@ import ThermostatIcon from "@mui/icons-material/Thermostat"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
 
 type WidgetPropsType = {
+    city: CityType
     deleteWidget: (id: number) => void
     refreshWidget: (cityTitle: string) => void
 }
 
 export const Widget: React.FC<CityType & WidgetPropsType> = (props) => {
+
     console.log("widget rendered")
     let unix = new Date(props.dt * 1000)
 
@@ -28,6 +30,18 @@ export const Widget: React.FC<CityType & WidgetPropsType> = (props) => {
         history.push(`/fullInfo`)
         dispatch(getCheckedCityInfo(props.name))
     }, [history])
+
+
+    useEffect(()=>{
+        const cities = localStorage.getItem("cities")
+        let parsedCities: CityType[] = []
+        if (cities) {
+            parsedCities = JSON.parse(cities)
+            parsedCities.filter(el => el.id !== props.id)
+        }
+        localStorage.setItem("cities", JSON.stringify([...parsedCities]))
+    }, [props])
+
 
     return (
         <Container className={classes.root}>

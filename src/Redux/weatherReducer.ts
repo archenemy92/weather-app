@@ -160,7 +160,6 @@ export const getInfo = (city: string): ThunkType =>
             dispatch(setError("Can't find city, please enter valid data"))
         } else {
             dispatch(addCity(res))
-            await dispatch(addCityToLS())
             dispatch(isLoading())
         }
     }
@@ -171,24 +170,6 @@ export const refreshInfo = (city: string): ThunkType =>
         const res = await weatherApi.getWeatherInfo(city)
         dispatch(refreshCityInfo(res))
         dispatch(isLoading())
-    }
-
-export const addCityToLS = (): ThunkType =>
-    async (dispatch, getState) => {
-        let s = getState().weatherPage.cities
-        localStorage.setItem("cities", JSON.stringify([...s]))
-    }
-
-export const deleteCityFromLS = (id: number): ThunkType =>
-    async () => {
-        const cities = localStorage.getItem("cities")
-        const parsedCities = []
-        if (cities) {
-            const arrCities: CityType[] = JSON.parse(cities)
-            parsedCities.push(...arrCities)
-        }
-        let filtered = parsedCities.filter(el => el.id !== id)
-        localStorage.setItem("cities", JSON.stringify([...filtered]))
     }
 
     //set cities in init state
